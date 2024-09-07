@@ -14,24 +14,24 @@ public class LD {
         if(Op>7 || Op<0){
             System.out.println("Opção inválida.");
         } else if(Op == 1){
-            System.out.println("\nDigite o número a ser adicionado na lista: ");
+            System.out.println("\nDigite o número a ser adicionado ao início da lista: ");
             Número = Input.nextLine();
             if(PuxarNúmeros == null){
             	PuxarNúmeros = Número;
             } else{
             	PuxarNúmeros = Número+"\n"+PuxarNúmeros;
-        }   System.out.println("\nNúmero adicionado ao ínicio da lista.");
+        }   System.out.println("\nNúmero adicionado ao início da lista.");
             Thread.sleep(2000);
         } else if(Op == 3){
             ListaInício();
         } else if(Op == 2) {
-        	System.out.println("\nDigite o número a ser adicionado na lista: ");
+        	System.out.println("\nDigite o número a ser adicionado ao fim da lista: ");
         	Número = Input.nextLine();
         	if(PuxarNúmeros == null) {
         		PuxarNúmeros = Número;
         	} else {
         		PuxarNúmeros = PuxarNúmeros+"\n"+Número; 
-        	} System.out.println("\nNúmero adicionado ao ínicio da lista.");
+        	} System.out.println("\nNúmero adicionado ao fim da lista.");
               Thread.sleep(2000);
         } else if(Op == 4) {
         	ListaFim();
@@ -40,13 +40,20 @@ public class LD {
         	Aux = Input.nextLine();
         	String[] Split2 = PuxarNúmeros.split("\n");
         	StringBuilder NovaLista = new StringBuilder();
+			boolean NúmeroRemovido = false;
         	for (String Ordem : Split2) {
         		if(!Ordem.equals(Aux)) {
         			NovaLista.append(Ordem).append("\n");
-        		}
+        		} else{
+					NúmeroRemovido = true;
+				}
         	}
         	PuxarNúmeros = NovaLista.length() >0 ? NovaLista.toString().trim() : null;
-        	System.out.println("\nNúmero "+Aux+" removido da lista.");
+			if(NúmeroRemovido){
+				System.out.println("\nNúmero "+Aux+" removido da lista.");
+			} else{
+				System.out.println("\nO número solicitado para remoção não existe na lista.");
+			}
         	Thread.sleep(2000);
         } else if(Op == 6) {
         	PuxarNúmeros = null;
@@ -92,7 +99,7 @@ public class LD {
         System.out.println("\n+------------------------------------------+");
         System.out.println("|                 MENU                     |");
         System.out.println("+------------------------------------------+");
-        System.out.println("| 1. Inserir no ínicio da lista            |");
+        System.out.println("| 1. Inserir no início da lista            |");
         System.out.println("| 2. Inserir no fim da lista               |");
         System.out.println("| 3. Consultar a lista do início ao fim    |");
         System.out.println("| 4. Consultar a lista do fim ao início    |");
