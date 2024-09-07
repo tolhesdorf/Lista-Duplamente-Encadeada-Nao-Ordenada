@@ -20,7 +20,8 @@ public class LD {
             	PuxarNúmeros = Número;
             } else{
             	PuxarNúmeros = Número+"\n"+PuxarNúmeros;
-        }
+        }   System.out.println("\nNúmero adicionado ao ínicio da lista.");
+            Thread.sleep(2000);
         } else if(Op == 3){
             ListaInício();
         } else if(Op == 2) {
@@ -30,7 +31,8 @@ public class LD {
         		PuxarNúmeros = Número;
         	} else {
         		PuxarNúmeros = PuxarNúmeros+"\n"+Número; 
-        	}
+        	} System.out.println("\nNúmero adicionado ao ínicio da lista.");
+              Thread.sleep(2000);
         } else if(Op == 4) {
         	ListaFim();
         } else if (Op == 5) {
