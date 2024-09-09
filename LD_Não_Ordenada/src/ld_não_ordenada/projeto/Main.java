@@ -1,12 +1,14 @@
 package ld_não_ordenada.projeto;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        while(LD.Op != 7){
-            LD.Menu();
-            LD.Funcionalidades();
+        while(true) {
+            Funcionalidades.Menu();
+            Funcionalidades.Opçoes();
+            if (Funcionalidades.Op == 7) {
+                System.out.println("\nEncerrando...");
+                break;
+            }
         }
-        System.out.println("\nEncerrando...");
     }
 }
